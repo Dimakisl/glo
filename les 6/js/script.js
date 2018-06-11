@@ -1,25 +1,25 @@
 let budget,
     nameShop,
     time,
-    price;
+    price,
+    amount;
 
 
 let span = document.getElementsByTagName('span');
 
-
 //3 Создать объект mainList
 const  mainList = {
-    budgetMonth: budget,
-    nameShop: nameShop,
-    shopGoods: [],
-    shopItems: [],
-    employers: {},
-    open: false,
-    discount: true,
-    price: 10000,
-    disc: 80
+        budgetMonth: budget,
+        nameShop: nameShop,
+        shopGoods: [],
+        shopItems: [],
+        employers: {},
+        open: false,
+        discount: false,
+        price: amount,
+        disc: 80
 
-};
+    };
 //  Задать пользователю 3 раза вопрос "Какой тип товаров будем продавать?" и записать ответы в массив shopGoods
 
 let answer;
@@ -63,15 +63,10 @@ while(i < 3){
 function disc(price, discount, disc) {
 if(discount)
 {
-    price = price - (price * 80 / 100);
+    return price = price - (price * 80 / 100);
 }
-
-console.log('Цена товара со скидкой: ' + price);
 }
-disc(mainList.price, mainList.discount, mainList.disc);
-
-
-
+//disc(mainList.price, mainList.discount, mainList.disc);
 
 
 
@@ -115,6 +110,22 @@ open_btn.addEventListener('click', () => {
     budgetValue.textContent = budget;
 
     nameValue.textContent = prompt('Название вашего магазина');
+
+    //работа со скидками
+    amount = +prompt('Планируемая общая сумма покупок, для расчета скидки');
+    while(isNaN(amount) || amount == '' || amount == null){
+        amount = +prompt('Планируемая общая сумма покупок, для расчета скидки');
+    }
+
+    if(amount > 5000){
+        mainList.discount = true;
+        discountValue.style.backgroundColor = 'green';
+        discountValue.textContent = disc(amount, mainList.discount, mainList.disc);
+    }else{
+        mainList.discount = false;
+        discountValue.style.backgroundColor = 'red';
+    }
+
 });
 
 goods_btn.addEventListener('click', () => {
@@ -148,10 +159,18 @@ localTime.addEventListener('change', () =>{
         mainList.open = false;
     } else if( time > 8 && time < 20){
         console.log('Время работать');
+        //разблокируем поля для ввода т. к. рабочее время
         mainList.open = true;
+        for(let i = 0; i < goods_item.length; i++){
+            goods_item[i].removeAttribute('disabled');
+            }
         } else if(time < 24){
             console.log('Слишком поздно');
             mainList.open = false;
+            //заблокирем поля для ввода т.к. не рабочее время
+            for(let i = 0; i < goods_item.length; i++){
+            goods_item[i].setAttribute('disabled', 'disabled');
+            }
         } else {
             console.log('В сутках 24 часа');
             mainList.open = false;
@@ -177,3 +196,4 @@ employers_btn.addEventListener('click', () =>{
 
     }
 });
+
