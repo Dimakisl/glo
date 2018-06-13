@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Дополнительно</title>
+</head>
+<body>
+
+        <input id="age" value="30">
+
+        <script>
+            let age = document.getElementById('age');
+ /*
+            let User = {
+                surname: 'Kovalenko',
+                name: 'Dima',
+            }
+
+            function showUser(surname, name) {
+                alert("Пользователь " + this.surname + " " + this.name + ", его возраст " + this.value);
+            }
+
+            document.addEventListener('click', function(){
+                    showUser.apply(User);
+            })
+*/
+
+            age.addEventListener('change', function(e, surname = 'Коваленко', name = 'Дима', ){
+                alert("Пользователь " + surname + " " + name + ", его возраст " + this.value)
+            })
+  
+        
+        </script>
+    
+</body>
+</html>
