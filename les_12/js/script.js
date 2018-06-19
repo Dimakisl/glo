@@ -327,6 +327,11 @@ window.addEventListener('DOMContentLoaded', function(){
 
     }
 
+    restDays.onkeyup = function (){
+        return this.value = this.value.replace(/[^\d]/g, '');
+
+    }
+
     persons.addEventListener('change', function (e) {
         personsSum = +this.value;
         total = (daysSum + personsSum) * 4000;
