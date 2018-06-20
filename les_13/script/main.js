@@ -1,24 +1,22 @@
 $(document).ready(function(){
     $('.main_btna, .main_btn, a[href="#sheldure"]').on('click', function(){
-        $('.overlay').animate({
+        $('.overlay').stop().animate({
             opacity: 'toggle',   
         }, 1000);
-        $('.modal').slideDown();
+        $('.modal').stop().slideDown();
     });
 
     $('.close').on('click', function(){
-        $('.modal').slideUp();
-        $('.overlay').animate({
+        $('.modal').stop().slideUp();
+        $('.overlay').stop().animate({
             opacity: 'toggle',   
         }, 1000);
 
     });
 
     $(document).click(function(){
-        $('.modal').slideUp();
-        $('.overlay').animate({
-            opacity: 'toggle',   
-        }, 1000);
+        $('.modal').stop().slideUp();
+        $('.overlay').hide();
     })
     $('.container').click(function (e){
         e.stopPropagation();
