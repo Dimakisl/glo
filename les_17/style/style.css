@@ -1,0 +1,408 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
+
+body {
+ position: relative;
+ font-family: 'Oswald', sans-serif;
+ background:#303F9F;
+ color: #fff;
+ font-size: 20px;
+}
+
+.grid {
+ list-style: none;
+ margin-left: -40px;
+}
+
+.gc {
+ box-sizing: border-box;
+ display: inline-block;
+ margin-right: -.25em;
+ min-height: 1px;
+ padding-left: 40px;
+ vertical-align: top;
+}
+
+.gc--1-of-3 {
+ width: 33.33333%;
+}
+
+.gc--2-of-3 {
+ width: 66.66666%;
+}
+
+.naccs {
+ position: relative;
+ max-width: 900px;
+ margin: 100px auto 0;
+}
+
+.naccs .menu div {
+ padding: 15px 20px 15px 40px;
+ margin-bottom: 10px;
+ color: #303F9F;
+ background: #3F51B5;
+ box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+ cursor: pointer;
+ position: relative;
+ vertical-align: middle;
+ font-weight: 700;
+ transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.naccs .menu div:hover {
+ box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.naccs .menu div span.light {
+ height: 10px;
+ width: 10px;
+ position: absolute;
+ top: 24px;
+ left: 15px;
+ background-color: #303F9F;
+ border-radius: 100%;
+ transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.naccs .menu div.active span.light {
+ background-color: #FBC02D;
+ left: 0;
+ height: 100%;
+ width: 3px;
+ top: 0;
+ border-radius: 0;
+}
+
+.naccs .menu div.active {
+ color:#FBC02D;
+ padding: 15px 20px 15px 20px;
+}
+
+ul.nacc {
+ position: relative;
+ height: 0px;
+ list-style: none;
+ margin: 0;
+ padding: 0;
+ transition: .5s all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+ul.nacc li {
+ opacity: 0;
+ transform: translateX(50px);
+ position: absolute;
+ list-style: none;
+ transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+ul.nacc li.active {
+ transition-delay: .3s;
+ z-index: 2;
+ opacity: 1;
+ transform: translateX(0px);
+}
+
+ul.nacc li p {
+ margin: 0;
+}
+
+/*slider*/
+
+@import url('https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz');
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.hidden {
+	display: none;
+}
+
+.white-mode {
+	text-decoration: none;
+	padding: 10px 20px;
+	background-color: #122;
+	border-radius: 3px;
+	color: #FFF;
+	transition: .35s ease-in-out;
+	position: absolute;
+	left: 100%;
+	top: 60%;
+	font-family: monospace;
+	transform: translate(-50%, -50%);
+	z-index: 2;
+}
+
+.white-mode:hover {
+	background-color: #FFF;
+	color: #122;
+}
+
+/* --------- */
+
+.container {
+	display: flex;
+	height: 100vh;
+	overflow: hidden;
+}
+
+.fa {
+	position: absolute;
+	z-index: 1;
+	font-size: 50px;
+	left: 10px;
+	transition: .2s ease-in-out;
+	opacity: .6;
+	cursor: pointer;
+}
+
+.fa:hover {
+	opacity: .9;
+}
+
+.fa-chevron-down {
+	bottom: 10px;
+}
+
+.left, .right {
+	width: 50%;
+	height: 100vh;
+	float: right;
+}
+
+.img-box {
+	width: 100%;
+	height: 100%;
+
+	white-space: nowrap;
+	position: relative;
+	overflow: hidden;
+}
+
+.img-box img {
+	height: 100%;
+	width: 200%;
+	position: absolute;
+}
+
+.right {
+	margin-top: -300vh;
+}
+
+.left .img-box img {
+	background-color: pink;
+	top: 0;
+	left: 0;
+}
+
+.right .img-box img {
+	background-color: purple;
+	top: 0;
+	right: 0;
+}
+
+h1 {
+	position: absolute;
+	top: 45%;
+	left: 100%;
+	transform: translate(-50%, -50%);
+	z-index: 2;
+	font-family: 'Yanone Kaffeesatz', sans-serif;
+	color: #262626;
+	font-size: 40px;
+}
+
+.right h1 {
+	left: auto;
+}
+
+.right .white-mode {
+	left: auto;
+}
+
+.container{
+    z-index: 100;
+}
+
+/*Modal*/
+
+body {
+    color: #333;
+    font-weight: 300;
+    text-align: center;
+    background: #333;
+  }
+  .container > .btn {
+    margin: 60px;
+    padding: 20px 40px;
+    font-size: 30px;
+    border-radius: 40px;
+  }
+  .modal {
+    background: #fff;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    transition: all 600ms cubic-bezier(0.86, 0, 0.07, 1);
+    top: 100%;
+    position: fixed;
+    left: 0;
+    text-align: left;
+  }
+  .modal .header {
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+    font: 300 24px Lato;
+    position: relative;
+  }
+  .modal .body {
+    padding: 20px;
+    font: 300 16px Lato;
+  }
+  .btn {
+    background: linear-gradient(to right, #dce35b, #45b649);
+    padding: 10px 25px;
+    display: inline-block;
+    border-radius: 25px;
+    margin: 20px 0;
+    color: #fff;
+    position: relative;
+    transition: all 0.4s ease;
+    cursor: pointer;
+  }
+
+.container > .btn{
+    height: 45px;
+}
+  .btn:hover {
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+  }
+  .container.modal-open .modal {
+    top: 0;
+  }
+
+  .container.modal-open .modal{
+      height: 250px;
+  }
+  
+  /*Calc*/
+  #calculator {
+	width: 286px;
+	height: auto;
+	overflow:hidden;
+	margin: 100px auto;
+	padding: 20px 20px 9px;
+	position:relative;
+	background: rgba(0,0,0,0.3);
+	border-radius: 3px;
+	box-shadow:  0px 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+.top span.clear {
+	position:absolute;
+    z-index:6;
+ 
+}
+
+
+.top .screen {
+	height: 38px;
+	width: 90%;
+	position:absolute;
+    top:0; 
+    left:0;
+    right: 15px;
+	padding: 20px 15px;
+	background: rgba(0, 0, 0, 0.2);
+	font-size: 27px;
+  font-weight:normal;
+	line-height: 40px;
+	color: white;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+	text-align: right;
+	letter-spacing: 1px;
+}
+
+.keys, .top {overflow: hidden;}
+
+
+.keys span, .top span.clear {
+	float: left;
+	position: relative;
+	top: 0;
+	
+	cursor: pointer;
+	
+	width: 66px;
+	height: 56px;
+	
+	background: rgba(0,0,0,0.5);
+	border-radius: 3px;
+	box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
+	
+	margin: 0 7px 11px 0;
+	
+	color: #ccc;
+	line-height: 56px;
+	text-align: center;
+	
+	user-select: none;
+	
+
+	transition: all 0.2s ease;
+}
+
+
+.keys span.operator {
+	background: rgba(250,100,0,0.3);
+	margin-right: 0;
+}
+
+.keys span.eval {
+
+	color: #888e5f;
+}
+
+.top span.clear {
+	background: transparent;
+	box-shadow: none;
+	color: #aaa;
+  width:56px;
+  left:5px;
+  top:-5px;
+}
+
+
+.keys span:hover {
+	background: rgba(255,255,255,0.8);
+	color: #333;
+}
+
+.keys span.eval:hover {
+	background: #abb850;
+	color: #ffffff;
+}
+
+.top span.clear:hover {
+  border-radius:190px;
+	background: rgba(0,0,0,0.1);
+	color: white;
+}
+
+.keys span:active {
+	box-shadow: 0px 0px rgba(0, 0, 0, 0.2);
+	top: 4px;
+}
+
+.keys span.eval:active {
+	box-shadow: 0px 0px #717a33;
+	top: 4px;
+}
+
+.top span.clear:active {
+	top: 4px;
+	box-shadow: 0px 0px #d3545d;
+}
